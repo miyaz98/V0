@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FocusFlow - 今日清单（日程视图）</title>
+  <link rel="stylesheet" href="todo-style.css" />
+</head>
+<body>
+  <div class="layout">
+    <!-- ✅ 侧边栏 -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html">📝 输入便签</a></li>
+          <li><a href="matrix.html">🧠 四象限</a></li>
+          <li><a class="active" href="todo.html">📅 今日清单</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ✅ 主内容 -->
+    <main class="main-content">
+      <header class="header">
+        <h1>今日清单 · 固定工作流</h1>
+        <div class="toolbar">
+          <button id="refreshBtn" title="重新从四象限映射任务">↻ 重新映射</button>
+          <span id="todayLabel"></span>
+        </div>
+      </header>
+
+      <!-- ✅ 日程容器（09:00 起纵向模块） -->
+      <section id="agenda" class="agenda">
+        <!-- 09:00–10:00 信息整理 -->
+        <div class="slot" data-slot="inbox">
+          <div class="slot-time">09:00 – 10:00</div>
+          <div class="slot-title">信息整理 & 输入便签</div>
+        </div>
+
+        <!-- 10:00–12:00 Q1 重要且紧急 -->
+        <div class="slot" data-slot="q1">
+          <div class="slot-time">10:00 – 12:00</div>
+          <div class="slot-title">重要且紧急（Do it now）</div>
+          <ul class="task-ul" data-accepts="q1"></ul>
+        </div>
+
+        <!-- 12:00–13:00 午餐 -->
+        <div class="slot static" data-slot="lunch">
+          <div class="slot-time">12:00 – 13:00</div>
+          <div class="slot-title">午餐休息</div>
+        </div>
+
+        <!-- 13:00–15:00 Q2 重要不紧急 -->
+        <div class="slot" data-slot="q2">
+          <div class="slot-time">13:00 – 15:00</div>
+          <div class="slot-title">重要但不紧急（Schedule it）</div>
+          <ul class="task-ul" data-accepts="q2"></ul>
+        </div>
+
+        <!-- 15:00–17:00 Q3+Q4 不重要（含紧急&不紧急） -->
+        <div class="slot" data-slot="q34">
+          <div class="slot-time">15:00 – 17:00</div>
+          <div class="slot-title">不重要任务（含紧急 & 不紧急）</div>
+          <ul class="task-ul" data-accepts="q34"></ul>
+        </div>
+
+        <!-- 17:00–18:00 回顾 -->
+        <div class="slot static" data-slot="review">
+          <div class="slot-time">17:00 – 18:00</div>
+          <div class="slot-title">整体 case 回顾</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <template id="taskItemTpl">
+    <li class="task-li" draggable="true">
+      <label class="task-check">
+        <input type="checkbox" class="task-done">
+        <span class="checkmark"></span>
+      </label>
+      <span class="task-text"></span>
+      <span class="task-chip"></span>
+    </li>
+  </template>
+
+  <script src="todo-script.js"></script>
+</body>
+</html>

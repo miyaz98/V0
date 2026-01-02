@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="index-style.css" />
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FocusFlow - 便签输入</title>
+    <link rel="stylesheet" href="index-style.css" />
+  </head>
+<body>
+  <div class="layout">
+    <!-- ✅ 左侧导航栏 -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html">📝 输入便签</a></li>
+          <li><a href="matrix.html">🧠 四象限</a></li>
+          <li><a href="todo.html">📅 今日清单</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ✅ 主内容区域 -->
+    <main class="main-content">
+      <h1>FocusFlow - AI任务识别</h1>
+
+      <textarea id="noteInput" placeholder="请输入你的便签..."></textarea>
+      <br />
+      <!-- 重要性选择 -->
+      <div class="priority-group">
+        <p>重要性：</p>
+        <label><input type="radio" name="importance" value="high"> 高</label>
+        <label><input type="radio" name="importance" value="low"> 低</label>
+        <button type="button" onclick="clearSelection('importance')">清空</button>
+      </div>
+      <!-- 紧急性选择 -->
+      <div class="priority-group">
+        <p>紧急性：</p>
+        <label><input type="radio" name="urgency" value="high"> 高</label>
+        <label><input type="radio" name="urgency" value="low"> 低</label>
+        <button type="button" onclick="clearSelection('urgency')">清空</button>
+      </div>
+      <br />
+      <button id="submitNote">提交</button>
+      <button id="viewHistory">查看历史便签</button>
+
+      <!-- 提交成功弹窗 -->
+      <div id="submitPopup" class="popup hidden">
+        <div class="popup-content">
+          <p>提交成功！</p>
+          <button id="closeSubmitPopup">关闭</button>
+        </div>
+      </div>
+
+      <!-- 历史弹窗 -->
+      <div id="historyPopup" class="popup hidden">
+        <div class="popup-content">
+          <h3>历史便签</h3>
+          <div id="historyList"></div>
+          <button id="closeHistoryPopup">关闭</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="index-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="matrix-style.css" />
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FocusFlow - 四象限任务分析</title>
+  <link rel="stylesheet" href="matrix-style.css" />
+</head>
+<body>
+  <div class="layout">
+    <!-- ✅ 侧边栏 -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html">📝 输入便签</a></li>
+          <li><a href="matrix.html">🧠 四象限</a></li>
+          <li><a href="todo.html">📅 今日清单</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ✅ 主内容区域 -->
+    <main class="main-content">
+      <h1>四象限任务分析</h1>
+
+      <div class="matrix-container">
+        <div class="quadrant" id="q1">
+          <h2>🟥 重要且紧急<br>(Do it Now)</h2>
+          <div class="task-list"></div>
+        </div>
+        <div class="quadrant" id="q2">
+          <h2>🟩 重要但不紧急<br>(Schedule it)</h2>
+          <div class="task-list"></div>
+        </div>
+        <div class="quadrant" id="q3">
+          <h2>🟦 紧急但不重要<br>(Delegate it)</h2>
+          <div class="task-list"></div>
+        </div>
+        <div class="quadrant" id="q4">
+          <h2>⬜ 不重要不紧急<br>(Delete it)</h2>
+          <div class="task-list"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="matrix-script.js"></script>
+</body>
+</html>
