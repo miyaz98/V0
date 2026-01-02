@@ -69,7 +69,20 @@
           <div class="slot-time">17:00 – 18:00</div>
           <div class="slot-title">整体 case 回顾</div>
         </div>
-      </section>
+      
+        <!-- V0.1: Pending / Completed 区（不占用当日日程，但保留展示） -->
+        <div class="slot static" data-slot="pending">
+          <div class="slot-time">—</div>
+          <div class="slot-title">⏸ Pending（暂缓，不进入今日安排）</div>
+          <ul class="task-ul" id="pendingList"></ul>
+        </div>
+
+        <div class="slot static" data-slot="completed">
+          <div class="slot-time">—</div>
+          <div class="slot-title">✅ Completed（已完成）</div>
+          <ul class="task-ul" id="completedList"></ul>
+        </div>
+</section>
     </main>
   </div>
 
@@ -81,6 +94,9 @@
       </label>
       <span class="task-text"></span>
       <span class="task-chip"></span>
+  
+      <!-- 新增：删除按钮 -->
+      <button class="task-del" title="删除">✕</button>
     </li>
   </template>
 

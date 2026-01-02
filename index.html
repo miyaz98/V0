@@ -7,7 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>FocusFlow - 便签输入</title>
     <link rel="stylesheet" href="index-style.css" />
-  </head>
+  
+  <style>
+    /* V0.1: 历史任务弹窗限高 + 滚动 */
+    #historyPopup .popup-content{
+      max-height: 70vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    #historyList{
+      overflow-y: auto;
+      max-height: 55vh; /* 留出标题/按钮空间 */
+      padding-right: 6px; /* 给滚动条留点空间 */
+    }
+    .note-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      padding:6px 0;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+    }
+    .note-actions{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      flex-shrink:0;
+    }
+    .status-badge{
+      font-size:12px;
+      padding:2px 6px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,0.12);
+      opacity:0.9;
+    }
+  </style>
+
+</head>
 <body>
   <div class="layout">
     <!-- ✅ 左侧导航栏 -->
